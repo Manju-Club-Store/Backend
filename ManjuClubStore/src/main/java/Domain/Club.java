@@ -1,48 +1,83 @@
 package Domain;
 
-import jakarta.persistence.GeneratedValue;
+import jakarta.annotation.Nullable;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
 
 import java.util.Date;
-import java.util.Optional;
 
 import Enum.*;
 @Getter
 @Setter
+@Entity
 public class Club {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(name = "name")
     private String name;
+    @Column(name = "group")
     private Group group;
+    @Column(name = "category")
     private Category category;
 
-    private Optional<String> address;
-    private Optional<Integer> fee;
+    @Nullable
+    @Column(name = "address")
+    private String address;
+    @Nullable
+    @Column(name = "fee")
+    private int fee;
+    @Column(name = "club_size")
     private ClubSize clubSize;
 
-    private Optional<String> contactPhone;
-    private Optional<String> contactKakao;
-    private Optional<String> contactInstagram;
 
+    @Nullable
+    @Column(name = "contact_phone")
+    private String contactPhone;
+    @Nullable
+    @Column(name = "contact_kakao")
+    private String contactKakao;
+    @Nullable
+    @Column(name = "contact_instagram")
+    private String contactInstagram;
+
+    @Column(name = "is_mandatory")
     private boolean isMandatory;
-    private ActivityDay[] activityDay;
+    //@Column(name = "activity_day")
+    //private ActivityDay[] activityDay;
 
+
+    @Column(name = "main_image")
     private String mainImage;
-    private Optional<String[]> eventImage;
+    //@Nullable
+    //@Column(name = "event_image")
+    //private String[] eventImage;
 
+    @Column(name = "recruitment_status")
     private RecruitmentStatus recruitmentStatus;
-    private Optional<Date> startDate;
-    private Optional<Date> endDate;
-    private Optional<RecruitmentType> recruitmentType;
-    private Optional<String> recruitmentDetail;
+    @Nullable
+    @Column(name = "start_date")
+    private Date startDate;
+    @Nullable
+    @Column(name = "end_date")
+    private Date endDate;
+    @Nullable
+    @Column(name = "recruitment_type")
+    private RecruitmentType recruitmentType;
+    @Nullable
+    @Column(name = "recruitment_detail")
+    private String recruitmentDetail;
 
+    @Column(name = "introduction")
     private String introduction;
-    private Optional<String> post;
-    private Optional<String> everytimeLink;
+    @Nullable
+    @Column(name = "post")
+    private String post;
+    @Nullable
+    @Column(name = "everytime_link")
+    private String everytimeLink;
 
 }
