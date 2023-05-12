@@ -1,40 +1,44 @@
 package Domain;
 
+import jakarta.persistence.GeneratedValue;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
 
 import java.util.Date;
 import java.util.Optional;
 
+import Enum.*;
 @Getter
 @Setter
 public class Club {
 
-
+    @Id
+    @GeneratedValue
     private long id;
 
     private String name;
-    //private ENUM group
-    //private String category;
+    private Group group;
+    private Category category;
 
     private Optional<String> address;
     private Optional<Integer> fee;
-    //private clubSize
+    private ClubSize clubSize;
 
     private Optional<String> contactPhone;
     private Optional<String> contactKakao;
     private Optional<String> contactInstagram;
 
     private boolean isMandatory;
-    //priavte activity;
+    private ActivityDay[] activityDay;
 
     private String mainImage;
     private Optional<String[]> eventImage;
 
-    //private recruitmentStatus;
+    private RecruitmentStatus recruitmentStatus;
     private Optional<Date> startDate;
     private Optional<Date> endDate;
-    //private Optional<> recruitmentType;
+    private Optional<RecruitmentType> recruitmentType;
     private Optional<String> recruitmentDetail;
 
     private String introduction;
