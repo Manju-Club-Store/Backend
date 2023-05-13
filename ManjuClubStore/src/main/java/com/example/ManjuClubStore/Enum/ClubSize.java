@@ -1,4 +1,4 @@
-package Enum;
+package com.example.ManjuClubStore.Enum;
 
 public enum ClubSize {
     lessTan10,
@@ -6,3 +6,4 @@ public enum ClubSize {
     twentyFiveTo50,
     moreThan100
 }
+
