@@ -1,22 +1,17 @@
 package com.example.ManjuClubStore;
 
-import Domain.Club;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.Optional;
+import org.springframework.test.context.junit4.SpringRunner;
 
 @SpringBootTest
+@RunWith(SpringRunner.class)
 class ManjuClubStoreApplicationTests {
 
 	@Test
-	void clubDomain() {
-		Club club = new Club();
-		club.setFee(Optional.ofNullable(20));
-		club.setContactKakao(Optional.ofNullable("dltjdgh97"));
+	void saveClub() {
 
-		System.out.println(club.getFee().get());
-		System.out.println(club.getContactKakao().get());
 	}
-
 }
