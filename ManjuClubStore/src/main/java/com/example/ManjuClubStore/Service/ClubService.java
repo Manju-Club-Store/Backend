@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class ClubService {
@@ -17,4 +19,10 @@ public class ClubService {
         return clubRepository.save(club);
     }
 
+    public void saveProfileImage(Long clubId, String fileUrl) {
+        Optional<Club> tmp = clubRepository.findById(clubId);
+        Club club = tmp.get();
+        club.setProfileImage(fileUrl);
+        clubRepository.save(club);
+    }
 }
