@@ -1,4 +1,5 @@
-package Enum;
+package com.example.ManjuClubStore.Enum;
+
 public enum ActivityDay {
     MONDAY("월요일"),
     TUESDAY("화요일"),
