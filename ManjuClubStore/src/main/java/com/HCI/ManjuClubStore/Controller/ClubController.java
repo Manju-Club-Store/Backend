@@ -1,6 +1,6 @@
-package com.example.ManjuClubStore.Controller;
-import com.example.ManjuClubStore.Domain.Club;
-import com.example.ManjuClubStore.Service.ClubService;
+package com.HCI.ManjuClubStore.Controller;
+import com.HCI.ManjuClubStore.Domain.Club;
+import com.HCI.ManjuClubStore.Service.ClubService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 public class ClubController {
@@ -22,6 +23,11 @@ public class ClubController {
     @PostMapping("/club")
     public Club saveClub(@RequestBody Club club) {
         return clubService.save(club);
+    }
+
+    @GetMapping("/clubs")
+    public List<Club> getAllClubs() {
+        return clubService.findAll();
     }
 
     @Value("${file.dir}")

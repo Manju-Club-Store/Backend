@@ -1,8 +1,7 @@
-package com.example.ManjuClubStore;
+package com.HCI.ManjuClubStore;
 
-import com.example.ManjuClubStore.Domain.Club;
-import com.example.ManjuClubStore.Enum.*;
-import com.example.ManjuClubStore.Service.ClubService;
+import com.HCI.ManjuClubStore.Domain.Club;
+import com.HCI.ManjuClubStore.Service.ClubService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

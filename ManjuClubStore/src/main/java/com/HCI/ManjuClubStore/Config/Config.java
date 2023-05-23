@@ -1,4 +1,4 @@
-package com.example.ManjuClubStore.Config;
+package com.HCI.ManjuClubStore.Config;
 
 import org.springframework.context.annotation.Configuration;
 
