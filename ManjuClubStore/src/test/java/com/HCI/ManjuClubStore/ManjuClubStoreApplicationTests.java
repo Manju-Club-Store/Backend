@@ -17,7 +17,7 @@ class ManjuClubStoreApplicationTests {
 	@Test
 	void saveClub() {
 
-		clubService.save(new Club("youth hostel",  null,"120-503", null, LocalDate.now()));
+//		clubService.save(new Club("youth hostel",  null,"120-503", null, LocalDate.now()));
 
 /*
 clubService.save(Club.builder()

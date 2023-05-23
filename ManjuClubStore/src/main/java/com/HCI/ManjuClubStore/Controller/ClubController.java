@@ -1,6 +1,9 @@
 package com.HCI.ManjuClubStore.Controller;
 import com.HCI.ManjuClubStore.Domain.Club;
 import com.HCI.ManjuClubStore.Service.ClubService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -14,15 +17,29 @@ import java.util.List;
 @RestController
 public class ClubController {
 
-    private final ClubService clubService;
+    @Autowired
+    private ClubService clubService;
 
-    public ClubController(ClubService clubService) {
-        this.clubService = clubService;
-    }
+
 
     @PostMapping("/club")
-    public Club saveClub(@RequestBody Club club) {
-        return clubService.save(club);
+    public ResponseEntity<String> saveClub(@RequestParam("club") String clubData,
+                                           @RequestParam("mainImage")MultipartFile mainImage) throws IOException {
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        Club club = null;
+
+        try{
+            club = objectMapper.readValue(clubData, Club.class);
+        }catch(JsonProcessingException e){
+            e.printStackTrace();
+        }
+
+        String mainUrl = clubService.saveProfileImage(mainImage);
+        club.setMainImage(mainUrl);
+
+        clubService.save(club);
+        return ResponseEntity.ok("club saved");
     }
 
     @GetMapping("/clubs")
@@ -33,6 +50,7 @@ public class ClubController {
     @Value("${file.dir}")
     private String fileDir;
 
+    /*
     @PostMapping("/uploadProfileImage/{clubId}")
     public ResponseEntity<String> uploadProfileImage(@PathVariable Long clubId, @RequestParam("file")MultipartFile file)
     throws IOException{
@@ -43,8 +61,8 @@ public class ClubController {
 
         //Files.write(imagePath, file.getBytes());
         file.transferTo(new File(fileUrl));
-        clubService.saveProfileImage(clubId, fileUrl);
+        clubService.saveProfileImage(fileUrl);
 
         return new ResponseEntity<>(HttpStatusCode.valueOf(100));
-    }
+    }*/
 }
