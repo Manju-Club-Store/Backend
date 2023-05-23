@@ -1,4 +1,4 @@
-package com.example.ManjuClubStore.Enum;
+package com.HCI.ManjuClubStore.Enum;
 
 public enum ClubSize {
     lessTan10,
