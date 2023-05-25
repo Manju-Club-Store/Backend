@@ -11,6 +11,9 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
@@ -41,7 +44,16 @@ public class ClubService {
     }
 
     public String saveImage(byte[] imageBytes, String imageName, String clubName) throws IOException {
-        String fileUrl = fileDir + clubName + "/" + imageName;
+        String fileUrl = fileDir + clubName;
+
+        Path path = Paths.get(fileUrl);
+        //해당 동아리 폴더가 없는 경우
+        if(!Files.exists(path))
+            Files.createDirectory(path);
+
+        fileUrl += "/" + imageName;
+
+
 
         try (FileOutputStream imageOutFile = new FileOutputStream(fileUrl)) {
             imageOutFile.write(imageBytes);
