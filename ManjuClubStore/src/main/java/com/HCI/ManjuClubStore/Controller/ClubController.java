@@ -29,40 +29,26 @@ public class ClubController {
     public ResponseEntity<String> saveClub(@RequestBody Club club) throws IOException {
 
         String mainImage = club.getMainImage();
-        club.setMainImage(clubService.decodeImage(mainImage, "mainImage.jpg"));
+        club.setMainImage(clubService.decodeImage(mainImage, "mainImage.jpg", club.getName()));
 
         List<String> eventImages = club.getEventImages();
         List<String> eventImageUrls = new ArrayList<>();
 
         int i = 1;
         for (String eventImage : eventImages) {
-            eventImageUrls.add( clubService.decodeImage(eventImage, "eventImage" + i + ".jpg"));
+            eventImageUrls.add(clubService.decodeImage(eventImage, "eventImage" + i + ".jpg", club.getName()));
             i++;
+
+
+            club.setEventImages(eventImageUrls);
+            clubService.save(club);
         }
-        club.setEventImages(eventImageUrls);
-        clubService.save(club);
         return ResponseEntity.ok("Club saved");
     }
-
 
     @GetMapping("/clubs")
     public List<Club> getAllClubs() {
         return clubService.findAll();
     }
 
-   /*
-    @PostMapping("/uploadProfileImage/{clubId}")
-    public ResponseEntity<String> uploadProfileImage(@PathVariable Long clubId, @RequestParam("file")MultipartFile file)
-    throws IOException{
-        String fileName = file.getOriginalFilename();
-        String fileUrl = fileDir + fileName;
-       // Path imagePath = Paths.get(fileUrl);
-
-
-        //Files.write(imagePath, file.getBytes());
-        file.transferTo(new File(fileUrl));
-        clubService.saveProfileImage(fileUrl);
-
-        return new ResponseEntity<>(HttpStatusCode.valueOf(100));
-    }*/
 }
