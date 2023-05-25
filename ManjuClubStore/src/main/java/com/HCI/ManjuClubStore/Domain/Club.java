@@ -78,7 +78,6 @@ public class Club {
     @Column(length = 5000)
     private String post; // Can be null
 
-    // Constructor, getters, and setters are the same as before, just add for new fields
 
 
     public Club() {

@@ -32,16 +32,16 @@ public class ClubService {
     @Value("${file.dir}")
     private String fileDir;
 
-    public String decodeImage(String image, String imageName) throws IOException {
+    public String decodeImage(String image, String imageName, String clubName) throws IOException {
         byte[] decodedBytes = Base64.getDecoder().decode(image);
-        String imageUrl = saveImage(decodedBytes, imageName);
+        String imageUrl = saveImage(decodedBytes, imageName, clubName);
 
         return imageUrl;
 
     }
 
-    public String saveImage(byte[] imageBytes, String imageName) throws IOException {
-        String fileUrl = fileDir + imageName;
+    public String saveImage(byte[] imageBytes, String imageName, String clubName) throws IOException {
+        String fileUrl = fileDir + clubName + "/" + imageName;
 
         try (FileOutputStream imageOutFile = new FileOutputStream(fileUrl)) {
             imageOutFile.write(imageBytes);
