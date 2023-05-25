@@ -1,8 +1,8 @@
 package com.HCI.ManjuClubStore.Enum;
 
 public enum ClubSize {
-    lessTan10,
-    tento25,
+    lessThan10,
+    tenTo25,
     twentyFiveTo50,
     moreThan100
 }

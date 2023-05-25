@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
@@ -28,15 +29,12 @@ public class ClubService {
     @Value("${file.dir}")
     private String fileDir;
 
-    public String saveProfileImage(MultipartFile file)
-        throws IOException{
-            String fileName = file.getOriginalFilename();
-            String fileUrl = fileDir + fileName;
+    public String saveImage(byte[] imageBytes, String imageName) throws IOException {
+        String fileUrl = fileDir + imageName;
 
-            file.transferTo(new File(fileUrl));
-            return fileUrl;
+        try (FileOutputStream imageOutFile = new FileOutputStream(fileUrl)) {
+            imageOutFile.write(imageBytes);
         }
-
-
-
+        return fileUrl;
+    }
 }

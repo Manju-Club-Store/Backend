@@ -17,8 +17,6 @@ class ManjuClubStoreApplicationTests {
 	@Test
 	void saveClub() {
 
-//		clubService.save(new Club("youth hostel",  null,"120-503", null, LocalDate.now()));
-
 /*
 clubService.save(Club.builder()
 				.name("youth hostel")
@@ -58,12 +56,6 @@ clubService.save(new Club( Long.valueOf(1241), "youth hostel", Group.Central
 				.build());
 
 */
-
-
-
-
-	//	clubService.save(new Club("roman surf", 30000, "Seoul"));
-	//	clubService.save(new Club("youth hostel", 20000, "102-503"));
 	}
 
 
