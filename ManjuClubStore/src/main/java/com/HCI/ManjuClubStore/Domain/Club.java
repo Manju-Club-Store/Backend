@@ -84,7 +84,12 @@ public class Club {
     public Club() {
     }
 
-    public Club(Long id, String name, Affiliation affiliation, Category category, String address, Integer fee, ClubSize clubSize, String contactPhone, String contactKakao, String contactInstagram, List<ActivityDay> activityDay, String mainImage, List<String> eventImages, Boolean isMandatory, RecruitmentStatus recruitmentStatus, Date startDate, Date endDate, String recruitmentSize, RecruitmentType recruitmentType, String recruitmentDetail, String introduction, String everytimeLink, Integer heartCount, String post) {
+    public Club(Long id, String name, Affiliation affiliation, Category category, String address, Integer fee,
+                ClubSize clubSize, String contactPhone, String contactKakao, String contactInstagram,
+                List<ActivityDay> activityDay, String mainImage, List<String> eventImages, Boolean isMandatory,
+                RecruitmentStatus recruitmentStatus, Date startDate, Date endDate, String recruitmentSize,
+                RecruitmentType recruitmentType, String recruitmentDetail, String introduction, String everytimeLink,
+                Integer heartCount, String post) {
         this.id = id;
         this.name = name;
         this.affiliation = affiliation;
