@@ -28,26 +28,18 @@ public class ClubController {
     @PostMapping("/club")
     public ResponseEntity<String> saveClub(@RequestBody Club club) throws IOException {
 
-        // Assuming club.getMainImage() is a base64 encoded String
         String mainImage = club.getMainImage();
-        byte[] decodedBytes = Base64.getDecoder().decode(mainImage);
+        club.setMainImage(clubService.decodeImage(mainImage, "mainImage.jpg"));
 
-        // Save main image
-        String mainImageUrl = clubService.saveImage(decodedBytes, "mainImage.jpg");
-        club.setMainImage(mainImageUrl);
-
-        // Assuming club.getEventImages() is a list of base64 encoded Strings
         List<String> eventImages = club.getEventImages();
         List<String> eventImageUrls = new ArrayList<>();
+
         int i = 1;
         for (String eventImage : eventImages) {
-            decodedBytes = Base64.getDecoder().decode(eventImage);
-            String imageUrl = clubService.saveImage(decodedBytes, "eventImage" + i + ".jpg");
-            eventImageUrls.add(imageUrl);
+            eventImageUrls.add( clubService.decodeImage(eventImage, "eventImage" + i + ".jpg"));
             i++;
         }
         club.setEventImages(eventImageUrls);
-
         clubService.save(club);
         return ResponseEntity.ok("Club saved");
     }
@@ -58,7 +50,7 @@ public class ClubController {
         return clubService.findAll();
     }
 
-    /*
+   /*
     @PostMapping("/uploadProfileImage/{clubId}")
     public ResponseEntity<String> uploadProfileImage(@PathVariable Long clubId, @RequestParam("file")MultipartFile file)
     throws IOException{
