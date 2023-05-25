@@ -35,12 +35,8 @@ public class ClubService {
     @Value("${file.dir}")
     private String fileDir;
 
-    public String decodeImage(String image, String imageName, String clubName) throws IOException {
-        byte[] decodedBytes = Base64.getDecoder().decode(image);
-        String imageUrl = saveImage(decodedBytes, imageName, clubName);
-
-        return imageUrl;
-
+    public byte[] decodeImage(String image) {
+        return Base64.getDecoder().decode(image);
     }
 
     public String saveImage(byte[] imageBytes, String imageName, String clubName) throws IOException {
@@ -52,8 +48,6 @@ public class ClubService {
             Files.createDirectory(path);
 
         fileUrl += "/" + imageName;
-
-
 
         try (FileOutputStream imageOutFile = new FileOutputStream(fileUrl)) {
             imageOutFile.write(imageBytes);

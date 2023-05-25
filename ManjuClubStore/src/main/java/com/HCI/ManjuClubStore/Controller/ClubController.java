@@ -29,20 +29,24 @@ public class ClubController {
     public ResponseEntity<String> saveClub(@RequestBody Club club) throws IOException {
 
         String mainImage = club.getMainImage();
-        club.setMainImage(clubService.decodeImage(mainImage, "mainImage.jpg", club.getName()));
+        byte[] imageBytes = clubService.decodeImage(mainImage);
+        String imageUrl = clubService.saveImage(imageBytes, "mainImage.jpg", club.getName());
+        club.setMainImage(imageUrl);
 
         List<String> eventImages = club.getEventImages();
         List<String> eventImageUrls = new ArrayList<>();
 
         int i = 1;
         for (String eventImage : eventImages) {
-            eventImageUrls.add(clubService.decodeImage(eventImage, "eventImage" + i + ".jpg", club.getName()));
+            imageBytes = clubService.decodeImage(eventImage);
+            imageUrl = clubService.saveImage(imageBytes, "eventImage" + i + ".jpg", club.getName());
+            eventImageUrls.add(imageUrl);
             i++;
-
-
-            club.setEventImages(eventImageUrls);
-            clubService.save(club);
         }
+
+        club.setEventImages(eventImageUrls);
+        clubService.save(club);
+
         return ResponseEntity.ok("Club saved");
     }
 
