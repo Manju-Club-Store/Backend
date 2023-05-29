@@ -30,7 +30,7 @@ public class ClubController {
 
         String mainImage = club.getMainImage();
         byte[] imageBytes = clubService.decodeImage(mainImage);
-        String imageUrl = clubService.saveImage(imageBytes, "mainImage.jpg", club.getName());
+        String imageUrl = clubService.saveImage(imageBytes, "mainImage.png", club.getName());
         club.setMainImage(imageUrl);
 
         List<String> eventImages = club.getEventImages();
@@ -39,7 +39,7 @@ public class ClubController {
         int i = 1;
         for (String eventImage : eventImages) {
             imageBytes = clubService.decodeImage(eventImage);
-            imageUrl = clubService.saveImage(imageBytes, "eventImage" + i + ".jpg", club.getName());
+            imageUrl = clubService.saveImage(imageBytes, "eventImage" + i + ".png", club.getName());
             eventImageUrls.add(imageUrl);
             i++;
         }

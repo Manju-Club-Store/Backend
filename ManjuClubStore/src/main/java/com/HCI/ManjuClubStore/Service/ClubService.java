@@ -35,6 +35,9 @@ public class ClubService {
     @Value("${file.dir}")
     private String fileDir;
 
+    @Value("${dbfile.dir}")
+    private String dbfileDir;
+
     public byte[] decodeImage(String image) {
         return Base64.getDecoder().decode(image);
     }
@@ -52,6 +55,8 @@ public class ClubService {
         try (FileOutputStream imageOutFile = new FileOutputStream(fileUrl)) {
             imageOutFile.write(imageBytes);
         }
+
+        fileUrl = dbfileDir + clubName + "/" + imageName;
         return fileUrl;
     }
 }

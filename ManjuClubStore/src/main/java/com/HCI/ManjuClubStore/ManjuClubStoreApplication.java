@@ -136,10 +136,10 @@ public class ManjuClubStoreApplication implements CommandLineRunner {
 						"안녕하세요!!피아노를 사랑하는 사람들이 모여 만드는 아름다운 소리, 건국대학교 \uD83C\uDFB9피아노 중앙동아리 선율입니다!이번학기 새내기맞이주간에도 \uD83C\uDF39선율 홍보부스\uD83C\uDF39가 열립니다~온라인 모집에 이어 오프라인으로 새맞주 기간에 23학년도 1학기 신입부원을 모집하니 많은 지원 바랍니다.\uD83D\uDCEE\uD83C\uDF52도전 랜덤 플레이\uD83C\uDF52 이벤트도 진행하니 \uD83C\uDF4E아름다운 피아노 선율\uD83C\uDF4E을 들으며 이벤트도 즐기고 \uD83C\uDF6B경품\uD83C\uDF6B도 받아가세요!\uD83C\uDFB9부스 진행 일정부스는 3/7(수)~ 3/8(목) \uD83C\uDF39오전 10시부터 오후 5시까지\uD83C\uDF39청심대 앞에서 진행됩니다.부스에서는 선율 지원서 작성이 가능하며, 다양한 상품이 준비된 이벤트를 진행합니다.\uD83D\uDEA9\uD83D\uDEA9▫️오프라인 지원 이후 추가적인 모집이 없을 예정이니 모집 일정 내에 꼭 신청해주세요!⏰️\uD83C\uDFB9이벤트 소개\uD83C\uDF52도전 랜덤 플레이\uD83C\uDF52참여자가 제비 뽑기를 통해 뽑은 곡을 연주하는 게임입니다. \uD83C\uDFB9 연주곡의 난이도는 ✈️비행기 수준의 쉬운 곡이 대다수이니 주저하지 말고 도전해보세요!\uD83D\uDD25\uD83C\uDF6C준비된 경품\uD83C\uDF6C다양한 종류의 까까\uD83C\uDF6B\uD83C\uDF6D\uD83C\uDF70\uD83D\uDCE3모든 이벤트에 대해, 준비된 경품이 소진될 시, 해당 경품의 이벤트는 조기 종료될 수 있습니다.\uD83C\uDFB9모집일정* 새내기 맞이 주간 서류 접수 : 3/7(화)~ 3/8(수) 새맞주 부스에서 접수하시면 됩니다.* 서류 합격문자 발송 : 3/8(수)* 서류 합격자 면접 : 3/9(목)~ 3/14(화)* 최종 합격문자 발송 : 3/14(화)\uD83C\uDF39 이번학기 선율 개강 총회✨️는 3/16(목) 18:00 ~ 19:00 에 예정되어 있습니다. \uD83C\uDF39\uD83C\uDFB9선율 지원 방법[Step 1]3/7(화) ~ 3/8(수), 선율의 새내기 맞이 주간 부스에 와서 간단한 지원서를 제출한다.[Step 2]3/8(수) 새맞주 종료 후, 개인 연락처로 발송된 서류 합격 문자로 면접에 대한 안내문자를 확인한다!\uD83C\uDF4E\uD83C\uDFB9면접안내3/8(수)에 서류 합격자 분들께 연락처로 면접 안내 공지를 보내드립니다. 면접은 대면으로 간략한 질문 몇 가지를 통해 진행됩니다! 이번 학기 면접장소는 케이큐브 혹은 동방에서 진행될 예정입니다!\uD83D\uDC25\uD83C\uDFB9회비안내선율 회비는 \"25,000원\"으로, 임시적으로 오픈 채팅방에 신입 회원분들을 초대한 후 회비 납부 확인이 되면 공지방과 수다방에 초대해드립니다.\uD83C\uDFB9기타문의궁금한 점은 아래 오픈채팅방 링크를 통해 편하게 물어봐 주세요!⭐️오픈 채팅방 링크➡️ https://open.kakao.com/o/svKxzwse선율의 활동이 좀 더 알고 싶다 하시는 분들은 선율 공식 인스타그램 계정과 선율 네이버 카페에서 많은 사진, 연주 동영상 등을 확인하실 수 있습니다!⭐️선율 인스타그램➡️ @ku_sunyul 검색⭐️선율 네이버 카페➡️ https://m.cafe.naver.com/sunyulkonkuk\uD83C\uDFB9홍보부스 위치"
 		);
 
-		clubService.save(Aqui);
-		clubService.save(Oxen);
-		clubService.save(Soriter);
-		clubService.save(Sunyul);
+//		clubService.save(Aqui);
+//		clubService.save(Oxen);
+//		clubService.save(Soriter);
+//		clubService.save(Sunyul);
 	}
 
 
